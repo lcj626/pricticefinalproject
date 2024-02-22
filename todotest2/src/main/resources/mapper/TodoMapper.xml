@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.todotest2.mapper.TodoMapper">
+
+    <resultMap id="todolist" type="com.ohgiraffers.todotest2.dto.TodoDTO">
+        <id property="id" column="ID"/>
+        <result property="contents" column="CONTENTS"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+    <select id="searchtodo" resultMap="todolist">
+        SELECT
+            *
+          FROM TODO;
+    </select>
+
+    <insert id="inserttodo" parameterType="com.ohgiraffers.todotest2.dto.TodoDTO">
+        INSERT INTO toto(
+            contents,
+            status
+        )VALUES(
+        #{contents},
+        #{status}
+        )
+    </insert>
+
+</mapper>
